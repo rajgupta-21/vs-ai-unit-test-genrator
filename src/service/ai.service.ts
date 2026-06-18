@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import OpenAI from "openai";
 dotenv.config();
+
 const grok = new OpenAI({
   apiKey: process.env.GROK_API_KEY,
 
@@ -173,6 +174,7 @@ ${fileContext}
       .trim();
 
     const parsedResponse = JSON.parse(content);
+    console.log(parsedResponse);
 
     return parsedResponse;
   } catch (error) {

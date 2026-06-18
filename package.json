@@ -1,7 +1,7 @@
 {
   "name": "test-case-generator-ai",
-  "displayName": "test-case-generator-ai",
-  "description": "generates unit-test through selected text using ai",
+  "displayName": "AI Unit Test Generator",
+  "description": "Generate unit tests for selected code using AI",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.120.0"
@@ -16,7 +16,8 @@
       "activitybar": [
         {
           "id": "ai-test-generater",
-          "title": "AI unit test"
+          "title": "AI Unit Test",
+          "icon": "$(beaker)"
         }
       ]
     },
@@ -25,16 +26,35 @@
         {
           "type": "webview",
           "id": "ai-test-generator.preview",
-          "name": "Generated Tests"
+          "name": "Generated Tests",
+          "icon": "somthing"
         }
       ]
     },
     "commands": [
       {
-        "command": "test-case-generator-ai.helloWorld",
-        "title": "Hello World"
+        "command": "test-case-generator-ai.generateTests",
+        "title": "Generate Unit Tests with AI",
+        "category": "AI Tests"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "test-case-generator-ai.generateTests",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t",
+        "when": "editorHasSelection"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "test-case-generator-ai.generateTests",
+          "when": "editorHasSelection",
+          "group": "1_modification"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
